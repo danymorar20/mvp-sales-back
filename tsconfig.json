@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false,
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
+    "inlineSources": true,
+    "resolveJsonModule": false, // revisar si es necesario
+    "paths": {
+      "@/src/*": ["src/*"],
+      "@/database/*": ["src/features/database/*"],
+      "@/user/*": ["src/features/user/*"],
+      "@/id-generator-service/*": ["src/services/id-generator/*"],
+      "@/hash-service/*": ["src/services/hash-service/*"],
+      "@/tests/*": ["tests/*"],
+    },
+    "types": ["vitest/globals"]
+  },
+  "exclude": ["node_modules", "dist"]
+}
