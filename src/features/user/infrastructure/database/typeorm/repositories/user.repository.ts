@@ -13,4 +13,8 @@ export class UserRepository implements UserRepositoryContract {
   async create(newUser: User): Promise<User> {
     return await this.repository.save(newUser);
   }
+
+  async findAll(): Promise<User[]> {
+    return await this.repository.find();
+  }
 }
