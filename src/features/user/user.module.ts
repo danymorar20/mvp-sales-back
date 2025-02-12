@@ -5,10 +5,11 @@ import { UserService } from './user.service';
 import { UserController } from './infrastructure/http-api/user.controller';
 import { CreateUserUseCase } from './application/use-cases/create-user.use-case';
 import { FindAllUsersUseCase } from './application/use-cases/find-all-users.use-case';
+import { FindUserWithIdUseCase } from './application/use-cases/find-user-with-id.use-case';
 
 @Module({
   imports: [DatabaseModule],
-  providers: [...DatabaseProviders, UserService, CreateUserUseCase, FindAllUsersUseCase],
+  providers: [...DatabaseProviders, UserService, CreateUserUseCase, FindAllUsersUseCase, FindUserWithIdUseCase],
   controllers: [UserController],
   exports: [UserService],
 })
