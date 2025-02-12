@@ -17,6 +17,11 @@ export class UserController {
     return await this.userService.findUserById(id);
   }
 
+  @Get('email/:email')
+  async findUserByEmail(@Param('email') email: string): Promise<Omit<User, 'password'>> {
+    return await this.userService.findUserByEmail(email);
+  }
+
   @Post()
   async createUser(
     @Body() params: CreateUserDto,

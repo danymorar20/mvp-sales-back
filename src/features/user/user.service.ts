@@ -4,6 +4,7 @@ import { UserDataDto } from './application/dto/user-data.dto';
 import { User } from './domain/entities/user.entity';
 import { FindAllUsersUseCase } from './application/use-cases/find-all-users.use-case';
 import { FindUserWithIdUseCase } from './application/use-cases/find-user-with-id.use-case';
+import { FindUserWithEmailUseCase } from './application/use-cases/find-user-with-email.use-case';
 
 @Injectable()
 export class UserService {
@@ -11,6 +12,7 @@ export class UserService {
     private readonly createUserUseCase: CreateUserUseCase,
     private readonly findAllUsersUseCase: FindAllUsersUseCase,
     private readonly findUserByIdUseCase: FindUserWithIdUseCase,
+    private readonly findUserByEmailUseCase: FindUserWithEmailUseCase,
   ) { }
 
   async createUser(userData: UserDataDto): Promise<Omit<User, 'password'>> {
@@ -23,5 +25,9 @@ export class UserService {
 
   async findUserById(id: string): Promise<Omit<User, 'password'>> {
     return await this.findUserByIdUseCase.execute(id);
+  }
+
+  async findUserByEmail(email: string): Promise<Omit<User, 'password'>> {
+    return await this.findUserByEmailUseCase.execute(email);
   }
 }

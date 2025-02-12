@@ -21,4 +21,8 @@ export class UserRepository implements UserRepositoryContract {
   async findById(id: string): Promise<User | null> {
     return await this.repository.findOne({ where: { id } });
   }
+
+  async findByEmail(email: string): Promise<User | null> {
+    return await this.repository.findOneBy({ email });
+  }
 }
