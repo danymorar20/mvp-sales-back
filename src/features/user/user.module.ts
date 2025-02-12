@@ -9,6 +9,6 @@ import { CreateUserUseCase } from './application/use-cases/create-user.use-case'
   imports: [DatabaseModule],
   providers: [...DatabaseProviders, UserService, CreateUserUseCase],
   controllers: [UserController],
-  exports: [UserService]
+  exports: [UserService],
 })
 export class UserModule {}

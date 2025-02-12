@@ -17,7 +17,7 @@ import { PostgreSQLConfig } from './features/database/infrastructure/postgres/po
       isGlobal: true,
       cache: true,
       envFilePath: '.env',
-      load: [PostgreSQLConfig]
+      load: [PostgreSQLConfig],
     }),
   ],
   controllers: [],

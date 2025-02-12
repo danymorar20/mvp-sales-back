@@ -5,6 +5,6 @@ import { IdGeneratorServiceProvider } from './provider';
 @Global()
 @Module({
   providers: [UUIDModule, IdGeneratorServiceProvider],
-  exports: [IdGeneratorServiceProvider]
+  exports: [IdGeneratorServiceProvider],
 })
 export class IdGeneratorModule {}
