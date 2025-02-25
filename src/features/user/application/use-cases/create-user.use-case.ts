@@ -4,6 +4,7 @@ import { UserRepositoryContract } from '@/user/domain/contracts/repositories/use
 import { User } from '@/user/domain/entities/user.entity';
 import { UserDataDto } from '@/user/application/dto/user-data.dto';
 import { Injectable } from '@nestjs/common';
+import { UserResponseDto } from '../dto/user-response.dto';
 
 @Injectable()
 export class CreateUserUseCase {
@@ -13,7 +14,7 @@ export class CreateUserUseCase {
     private readonly hashService: HashServiceContract,
   ) {}
 
-  async execute(userData: UserDataDto): Promise<Omit<User, 'password'>> {
+  async execute(userData: UserDataDto): Promise<UserResponseDto> {
     const now = new Date();
     const user: User = {
       id: this.idGeneratorService.generateV4().value,

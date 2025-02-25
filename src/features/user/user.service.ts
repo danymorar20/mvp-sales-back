@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserUseCase } from './application/use-cases/create-user.use-case';
 import { UserDataDto } from './application/dto/user-data.dto';
-import { User } from './domain/entities/user.entity';
+import { UserResponseDto } from './application/dto/user-response.dto';
 import { FindAllUsersUseCase } from './application/use-cases/find-all-users.use-case';
 import { FindUserWithIdUseCase } from './application/use-cases/find-user-with-id.use-case';
 import { FindUserWithEmailUseCase } from './application/use-cases/find-user-with-email.use-case';
@@ -15,19 +15,19 @@ export class UserService {
     private readonly findUserByEmailUseCase: FindUserWithEmailUseCase,
   ) { }
 
-  async createUser(userData: UserDataDto): Promise<Omit<User, 'password'>> {
+  async createUser(userData: UserDataDto): Promise<UserResponseDto> {
     return await this.createUserUseCase.execute(userData);
   }
 
-  async findAllUsers(): Promise<Omit<User, 'password'>[]> {
+  async findAllUsers(): Promise<UserResponseDto[]> {
     return await this.findAllUsersUseCase.execute();
   }
 
-  async findUserById(id: string): Promise<Omit<User, 'password'>> {
+  async findUserById(id: string): Promise<UserResponseDto> {
     return await this.findUserByIdUseCase.execute(id);
   }
 
-  async findUserByEmail(email: string): Promise<Omit<User, 'password'>> {
+  async findUserByEmail(email: string): Promise<UserResponseDto> {
     return await this.findUserByEmailUseCase.execute(email);
   }
 }
