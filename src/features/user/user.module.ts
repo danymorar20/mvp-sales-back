@@ -7,6 +7,7 @@ import { CreateUserUseCase } from './application/use-cases/create-user.use-case'
 import { FindAllUsersUseCase } from './application/use-cases/find-all-users.use-case';
 import { FindUserWithIdUseCase } from './application/use-cases/find-user-with-id.use-case';
 import { FindUserWithEmailUseCase } from './application/use-cases/find-user-with-email.use-case';
+import { UpdateUserUseCase } from './application/use-cases/update-user.use-case';
 
 @Module({
   imports: [DatabaseModule],
@@ -16,7 +17,8 @@ import { FindUserWithEmailUseCase } from './application/use-cases/find-user-with
     CreateUserUseCase,
     FindAllUsersUseCase,
     FindUserWithIdUseCase,
-    FindUserWithEmailUseCase
+    FindUserWithEmailUseCase,
+    UpdateUserUseCase,
   ],
   controllers: [UserController],
   exports: [UserService],
