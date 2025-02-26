@@ -8,7 +8,7 @@ export class FindAllUsersUseCase {
   constructor(private readonly userRepository: UserRepositoryContract) { }
 
   async execute(): Promise<UserResponseDto[]> {
-    const users = await this.userRepository.findAll();
+    const users: User[] = await this.userRepository.findAll();
     return users.map(({ password, ...userWithoutPassword }) => userWithoutPassword);
   }
 }

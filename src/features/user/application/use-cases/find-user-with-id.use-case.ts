@@ -9,7 +9,7 @@ export class FindUserWithIdUseCase {
   constructor(private readonly repository: UserRepositoryContract) {}
 
   async execute(id: string): Promise<UserResponseDto> {
-    const user = await this.repository.findById(id);
+    const user: User | null = await this.repository.findById(id);
     if (!user) throw new UserNotFoundWithIdException(id);
     const { password, ...userWithoutPassword } = user;
     return userWithoutPassword;

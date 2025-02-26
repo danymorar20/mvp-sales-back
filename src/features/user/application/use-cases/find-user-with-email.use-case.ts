@@ -9,7 +9,7 @@ export class FindUserWithEmailUseCase {
   constructor(private readonly repository: UserRepositoryContract) {}
 
   async execute(email: string): Promise<UserResponseDto> {
-    const user = await this.repository.findByEmail(email);
+    const user: User | null = await this.repository.findByEmail(email);
     if (!user) throw new UserNotFoundWithIdException(email);
     const { password, ...userWithoutPassword } = user;
     return userWithoutPassword;
