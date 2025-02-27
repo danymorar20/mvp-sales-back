@@ -35,4 +35,8 @@ export class UserRepository implements UserRepositoryContract {
 
     return this.repository.save(existingUser);
   }
+
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id);
+  }
 }

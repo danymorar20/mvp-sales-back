@@ -8,6 +8,7 @@ import { FindAllUsersUseCase } from './application/use-cases/find-all-users.use-
 import { FindUserWithIdUseCase } from './application/use-cases/find-user-with-id.use-case';
 import { FindUserWithEmailUseCase } from './application/use-cases/find-user-with-email.use-case';
 import { UpdateUserUseCase } from './application/use-cases/update-user.use-case';
+import { DeleteUserUseCase } from './application/use-cases/delete-user.user-case';
 
 @Module({
   imports: [DatabaseModule],
@@ -19,6 +20,7 @@ import { UpdateUserUseCase } from './application/use-cases/update-user.use-case'
     FindUserWithIdUseCase,
     FindUserWithEmailUseCase,
     UpdateUserUseCase,
+    DeleteUserUseCase,
   ],
   controllers: [UserController],
   exports: [UserService],
